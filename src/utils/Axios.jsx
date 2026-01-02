@@ -11,8 +11,8 @@ const instance = axios.create({
 // attach jwt token to requests
 instance.interceptors.request.use(
   (config) => {
-    // const token = localStorage.getItem("token")
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc2NzEwMTI1NSwiZXhwIjoxNzY3MTg3NjU1fQ.KEqlS87ycrw5vaP7LBxuhk5I-icF8RAmq3YFG4ynTrY"
+    // const token = localStorage.getItem("token") --commented out for testing purpose
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2NzMyNzk4MiwiZXhwIjoxNzY3NDE0MzgyfQ.2bKUI6aXCjVfhZrlto5z4K6zqy36MTWHGIwwwr_cRw4"
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

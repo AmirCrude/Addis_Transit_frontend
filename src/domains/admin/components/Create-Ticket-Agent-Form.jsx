@@ -8,9 +8,6 @@ const CreateTicketAgentForm = () => {
     first_name: "",
     last_name: "",
     phone_number: "",
-    department: "",
-    position_title: "",
-    office_region: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -36,9 +33,7 @@ const CreateTicketAgentForm = () => {
       !formData.email ||
       !formData.first_name ||
       !formData.last_name ||
-      !formData.department ||
-      !formData.position_title ||
-      !formData.office_region
+      !formData.phone_number
     ) {
       setError("Please fill all required fields");
       return;
@@ -55,16 +50,12 @@ const CreateTicketAgentForm = () => {
           first_name: "",
           last_name: "",
           phone_number: "",
-          department: "",
-          position_title: "",
-          office_region: "",
         });
         
         
       }
     } catch (err) {
       setError(err.response?.data?.message || "Server error");
-      console.log(err);
       
     } finally {
       setLoading(false);
@@ -85,9 +76,6 @@ const CreateTicketAgentForm = () => {
             ["first_name", "First Name"],
             ["last_name", "Last Name"],
             ["phone_number", "Phone Number"],
-            ["department", "Department"],
-            ["position_title", "Position Title"],
-            ["office_region", "Office Region"],
           ].map(([name, label]) => (
             <div className={styles.inputGroup} key={name}>
               <label className={styles.label}>{label}</label>
